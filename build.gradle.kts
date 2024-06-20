@@ -34,9 +34,24 @@ dependencies {
 
     // grpc dependencies
     val grpcVersion = "1.61.0"
-    compileOnly("io.grpc:grpc-stub:$grpcVersion")
-    compileOnly("io.grpc:grpc-netty-shaded:$grpcVersion")
-    compileOnly("io.grpc:grpc-kotlin-stub:1.4.1")
+    api("io.grpc:grpc-stub:$grpcVersion") {
+        exclude("org.jetbrains.kotlin")
+        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-core")
+        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-core-common")
+        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-core-native")
+    }
+    api("io.grpc:grpc-netty-shaded:$grpcVersion") {
+        exclude("org.jetbrains.kotlin")
+        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-core")
+        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-core-common")
+        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-core-native")
+    }
+    api("io.grpc:grpc-kotlin-stub:1.4.1") {
+        exclude("org.jetbrains.kotlin")
+        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-core")
+        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-core-common")
+        exclude("org.jetbrains.kotlinx", "kotlinx-coroutines-core-native")
+    }
 }
 
 tasks.named("shadowJar", ShadowJar::class) {
