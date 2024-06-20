@@ -34,9 +34,9 @@ dependencies {
 
     // grpc dependencies
     val grpcVersion = "1.61.0"
-    api("io.grpc:grpc-stub:$grpcVersion")
-    api("io.grpc:grpc-netty-shaded:$grpcVersion")
-    api("io.grpc:grpc-kotlin-stub:1.4.1")
+    compileOnly("io.grpc:grpc-stub:$grpcVersion")
+    compileOnly("io.grpc:grpc-netty-shaded:$grpcVersion")
+    compileOnly("io.grpc:grpc-kotlin-stub:1.4.1")
 }
 
 tasks.named("shadowJar", ShadowJar::class) {
